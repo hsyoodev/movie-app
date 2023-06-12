@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="root"></div>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script>
+      const root = document.getElementById("root");
+      const h3 = React.createElement(
+        "h3",
+        { onMouseEnter: () => console.log("mouse enter") },
+        "Hello I'm a span"
+      );
+      const button = React.createElement(
+        "button",
+        {
+          onClick: () => console.log("I'm Clicked"),
+          style: { backgroundColor: "tomato" },
+        },
+        "Click me"
+      );
+      const div = React.createElement("div", null, [h3, button]);
+      ReactDOM.createRoot(root).render(div);
+    </script>
+  </body>
+</html>
