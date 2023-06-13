@@ -12,44 +12,18 @@
     ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
-      const root = document.getElementById("root");
-      function Title() {
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      function App() {
+        let [counter, setCounter] = React.useState(0);
+        const onClick = () => setCounter(++counter);
         return (
-          <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
-            Hello I'm a title
-          </h3>
+          <div>
+            <h3>Total clicks : {counter}</h3>
+            <button onClick={onClick}>Click me</button>
+          </div>
         );
       }
-      const Button = () => (
-        <button
-          style={{ backgroundColor: "tomato" }}
-          onClick={() => console.log("I'm clicked")}
-        >
-          Click me
-        </button>
-      );
-      // const div = React.createElement("div", null, [Title, Button]);
-      const Container = () => (
-        <div>
-          <Title />
-          <Button />
-        </div>
-      );
-      // const h3 = React.createElement(
-      //   "h3",
-      //   { onMouseEnter: () => console.log("mouse enter") },
-      //   "Hello I'm a span"
-      // );
-      // const button = React.createElement(
-      //   "button",
-      //   {
-      //     onClick: () => console.log("I'm Clicked"),
-      //     style: { backgroundColor: "tomato" },
-      //   },
-      //   "Click me"
-      // );
-      // const div = React.createElement("div", null, [h3, button]);
-      ReactDOM.createRoot(root).render(<Container />);
+      root.render(<App />);
     </script>
   </body>
 </html>
